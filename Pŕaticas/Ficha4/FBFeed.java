@@ -118,6 +118,8 @@ public class FBFeed {
 
     //ix)
 
-
+    public List<Integer> top5CommentsIn(){
+        return this.posts.stream().sorted(Comparator.comparing(FBPost :: getLikes).reversed()).map(FBPost :: getId).limit(5).collect(Collectors.toList());
+    }
 
 }
